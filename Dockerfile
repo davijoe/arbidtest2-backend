@@ -4,7 +4,7 @@ FROM maven:3.8.3-openjdk-17-slim AS BUILD
 LABEL authors="ArtBidDevOps"
 
 # Setting working directory
-WORKDIR /artbidtest
+WORKDIR /artbidtest2
 
 # Copying pom and source files
 COPY ./pom.xml .
@@ -18,7 +18,7 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 
 # Copy JAR to prod from builder stage.
-COPY --from=BUILD /artbidtest/target/ArtBid-0.0.1-SNAPSHOT.jar /ArtBid-0.0.1-SNAPSHOT.jar
+COPY --from=BUILD /backend/target/ArtBid-0.0.1-SNAPSHOT.jar /ArtBid-0.0.1-SNAPSHOT.jar
 
 # Set entrypoint to run the jar
 ENTRYPOINT ["java", "-jar", "/ArtBid-0.0.1-SNAPSHOT.jar"]
