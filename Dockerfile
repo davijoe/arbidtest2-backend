@@ -4,7 +4,7 @@ FROM maven:3.8.3-openjdk-17-slim AS BUILD
 LABEL authors="ArtBidDevOps"
 
 # Setting working directory
-WORKDIR /artbidtest2
+WORKDIR /backend
 
 # Copying pom and source files
 COPY ./pom.xml .
