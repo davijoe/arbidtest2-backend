@@ -1,0 +1,7 @@
+target/
+    *.class
+    *.jar
+    *.war
+
+
+testfile.java
